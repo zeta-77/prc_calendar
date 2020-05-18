@@ -8,7 +8,7 @@ opt = OptionParser.new
 year = ''
 month = ''
 opt.on('-m', '--month MONTH', 'indicate month') { |v| month = v }
-opt.on('-y', '--year YIAR', 'indicate year') { |v| year = v }
+opt.on('-y', '--year YEAR', 'indicate year') { |v| year = v }
 opt.parse(ARGV)
 
 # コマンドライン引数で年月の指定がない場合は今日の年月を設定
