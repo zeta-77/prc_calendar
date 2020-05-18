@@ -8,7 +8,7 @@ opt = OptionParser.new
 year = ''
 month = ''
 opt.on('-m', '--month MONTH', 'indicate month') { |v| month = v }
-opt.on('-y', '--year YEAR', 'indicate year') { |v| year = v }
+opt.on('-y', '--year YIAR', 'indicate year') { |v| year = v }
 opt.parse(ARGV)
 
 # コマンドライン引数で年月の指定がない場合は今日の年月を設定
@@ -28,19 +28,13 @@ p week_num
 puts '     ' + month + '月 ' + year
 puts '日  月  火  水  木  金  土'
 print '    ' * week_num # 開始位置の設定
-n = 1
-while n <= end_day_num
-  if n < 10
-    print " #{n}  "
 
+(1..end_day_num).each do |date_num|
+  if date_num < 10
+    print " #{date_num}  "
   else
-    print "#{n}  "
-
+    print "#{date_num}  "
   end
-
-  puts "\n" if (week_num + n).modulo(7).zero? # 改行
-
-  n += 1
-
+  puts "\n" if (week_num + date_num) % 7 == 0 # 改行
 end
 puts "\n" * 2
