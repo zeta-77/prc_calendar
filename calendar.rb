@@ -22,19 +22,18 @@ start_day = d
 end_day = d.next_month - 1
 end_day_num = end_day.strftime('%d').to_i # 月の終了日
 week_num = start_day.strftime('%w').to_i # 開始曜日
-p week_num
 
 # カレンダーの表示
-puts '     ' + month + '月 ' + year
-puts '日  月  火  水  木  金  土'
-print '    ' * week_num # 開始位置の設定
+puts '      ' + month + '月 ' + year
+puts '日 月 火 水 木 金 土'
+print '   ' * week_num # 開始位置の設定
 
 (1..end_day_num).each do |date_num|
   if date_num < 10
-    print " #{date_num}  "
+    print " #{date_num} "
   else
-    print "#{date_num}  "
+    print "#{date_num} "
   end
   puts "\n" if (week_num + date_num) % 7 == 0 # 改行
 end
-puts "\n" * 2
+puts "\n"
